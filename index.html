@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#151a22">
+  <title>MechCAD | Mechanical CAD Workspace</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">M</span><div><strong>MechCAD</strong><small>Mechanical CAD Workspace</small></div></div>
+    <div class="top-actions">
+      <button id="homeView" class="icon-button" title="Home view" aria-label="Home view">⌂</button>
+      <button id="fitView" class="icon-button" title="Fit model" aria-label="Fit model">⛶</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <nav class="toolbar" aria-label="Model tools">
+      <div class="tool-group">
+        <span class="group-label">CREATE</span>
+        <button id="addBox" class="tool-button active"><span class="tool-icon">▧</span><span>Box</span></button>
+        <button id="addCylinder" class="tool-button"><span class="tool-icon">◉</span><span>Cylinder</span></button>
+        <button id="addSphere" class="tool-button"><span class="tool-icon">●</span><span>Sphere</span></button>
+      </div>
+      <div class="tool-group">
+        <span class="group-label">MODEL</span>
+        <button id="deleteSelected" class="tool-button"><span class="tool-icon">⌫</span><span>Delete</span></button>
+        <button id="resetScene" class="tool-button"><span class="tool-icon">↺</span><span>Reset</span></button>
+      </div>
+      <div class="tool-group">
+        <span class="group-label">VIEW</span>
+        <button id="toggleGrid" class="tool-button"><span class="tool-icon">▦</span><span>Grid</span></button>
+        <button id="toggleAxes" class="tool-button"><span class="tool-icon">⊕</span><span>Axes</span></button>
+      </div>
+    </nav>
+
+    <section class="workspace">
+      <div class="viewport-wrap">
+        <div class="viewport-heading"><span class="live-dot"></span> 3D MODEL SPACE <span class="units">UNITS: mm (prototype)</span></div>
+        <div id="viewport" role="img" aria-label="Interactive 3D modelling viewport"></div>
+        <div class="view-cube" aria-hidden="true"><span>TOP</span><b>FRONT</b><span>RIGHT</span></div>
+        <div class="viewport-help">One finger: rotate · Two fingers: zoom/pan · Tap a solid: select</div>
+      </div>
+
+      <aside class="side-panel">
+        <section class="panel-section">
+          <div class="panel-title">MODEL TREE <span id="objectCount" class="count">1</span></div>
+          <div id="modelTree" class="tree"></div>
+        </section>
+        <section class="panel-section properties">
+          <div class="panel-title">PROPERTIES</div>
+          <div id="propertiesContent" class="property-content">
+            <p class="muted">Select a solid in the viewport or model tree to inspect it.</p>
+          </div>
+        </section>
+        <section class="panel-section status-section">
+          <div class="panel-title">STATUS</div>
+          <p id="statusText" class="status-text">Ready · Select a primitive to begin</p>
+        </section>
+      </aside>
+    </section>
+    <footer class="footer"><span>MechCAD Prototype 0.1</span><span>3D preview · Not yet a parametric CAD kernel</span></footer>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
